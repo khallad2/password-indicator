@@ -1,0 +1,54 @@
+<div class="card-header strength-title col-sm-12 col-lg-12 col-xs-12 col-md-12 ">
+  <div class="card-title ">
+    <label for="password">{{passwordInputLabel}}</label>
+  </div>
+</div>
+
+<div class="card-body">
+<form (ngSubmit)="onSubmit()" #passwordForm="ngForm">
+  <div class="form-group">
+    <div class="container">
+    <div class="row">
+      <div  class="col-xl-10 col-md-10 col-sm-10 col-lg-10">
+        <input [type]="textInputType" class="form-control" id="password" [(ngModel)]="passwordModel.password"
+               name="password" placeholder="Minimum Password length is 6" required [minlength]="passMinLength"
+               [maxlength]="passMaxLength" #password="ngModel" (input)="onPasswordChange($event.target.value)" autofocus >
+      </div>
+
+
+      <div class="col-xl col-md col-sm col-lg align-content-center">
+        <div class="row">
+          <div class="col-sm-3">
+            <div class="row">
+              <input type="checkbox" name="show-password " id="show-password" (change)="onShowPassword($event.target.checked)" >
+              <label for="show-password"><i class="far fa-eye"></i></label>
+            </div>
+          </div>
+          <a class="Tooltip on right" ngbTooltip="{{toolTipText}}"><i class="fas fa-info-circle fa-x col-sm-6"></i></a>
+        </div>
+      </div>
+
+      </div>
+    </div>
+  </div>
+  <section>
+  <div [hidden]="password.valid || password.value === ''" class="alert-danger rounded my-validation ">
+     {{lengthValidationMsg}}
+  </div>
+  <div [hidden]="!showMaxLengthValidation" class="alert-warning rounded my-validation">
+    {{maxLengthValidationMsg}}
+  </div>
+  </section>
+</form>
+</div>
+
+<div class="card-footer">
+  <div class="strength-bar-footer align-self-center ">
+    <div class="row ">
+      <div *ngFor="let myClass of strengthStyles" [class]="myClass"> </div>
+    </div>
+    <span *ngIf="validationMessage === strengthBarTypes['weak']" class="text-danger font-italic"> <i><strong>{{validationMessage}}</strong></i></span>
+    <span *ngIf="validationMessage === strengthBarTypes['normal']" class="text-warning font-italic"> <i><strong>{{validationMessage}}</strong></i></span>
+    <span *ngIf="validationMessage === strengthBarTypes['strong']" class="text-success font-italic"> <i><strong>{{validationMessage}}</strong></i></span>
+  </div>
+</div>

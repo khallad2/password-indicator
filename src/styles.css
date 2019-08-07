@@ -1,0 +1,17 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+
+/* You can add global styles to this file, and also import other style files */
+html {
+height: 100%;
+width: 100%;
+}
+body {
+  height: 100%;
+  background: url('/assets/background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: fit-content;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-color: transparent;
+}

@@ -1,0 +1,28 @@
+<!--<header class="card-header header">-->
+  <!--<div class="row">-->
+    <!--<img class="col-lg-1 col-sm-1 col-xs-1" alt="Health Rise Logo"  src="./assets/logo.png">-->
+    <!--<h1 class="title col-sm-1 col-lg-1 col-md-1 col-xs-1">{{ title }}!</h1>-->
+  <!--</div>-->
+<!--</header>-->
+
+<app-header></app-header>
+
+<div class="div-form">
+  <app-strength-bar
+    [steps]="steps"
+    [passMinLength]="passMinLength"
+    [passMaxLength]="passMaxLength"
+    [defaultClass]="defaultClass"
+    [weakClass]="weakClass"
+    [normalClass]="normalClass"
+    [strongClass]="strongClass"
+    [toolTipText]="toolTipText"
+    [lengthValidationMsg]="lengthValidationMsg"
+    [passwordInputLabel]="passwordInputLabel"
+    [strengthBarTypes]="strengthBarTypes"
+    [initStrength]="initStrength"
+  >
+  </app-strength-bar>
+</div>
+
+<footer class="card-footer footer">Copyright © {{date}} <a alt="website" href="https://www.health-rise.de/" target="_blank">{{companyName}}</a></footer>
